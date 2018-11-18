@@ -1,0 +1,15 @@
+package springpetclinic.services;
+
+public interface CurdService<T, ID> {
+
+    T findById(ID id);
+
+    Set<T> findAll();
+
+    T save(T object);
+
+    void delete(T object);
+
+    void deleteById(ID id);
+
+}
