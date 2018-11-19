@@ -4,6 +4,6 @@ import springpetclinic.model.Owner;
 
 public interface OwnerService extends CurdService<Owner, Long>{
 
-    Owner findByLastNmae(String lastName);
+    Owner findByLastName(String lastName);
 
 }
