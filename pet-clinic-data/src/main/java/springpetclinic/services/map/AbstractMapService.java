@@ -1,17 +1,28 @@
 package springpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import springpetclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<ID, T> {
+import java.util.*;
 
-    protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<ID extends  Long, T extends BaseEntity> {
 
-    T save(ID id, T object) {
-        map.put(id, object);
+    protected Map<Long, T> map = new HashMap<>();
+
+    T save(T object) {
+
+        if(object.getId() == null){
+            object.setId(getNextId());
+        }
+        map.put(object.getId(), object);
 
         return object;
+    }
+
+    private Long getNextId() {
+
+        Long id = Collections.max(map.keySet()) + 1;
+
+        return id;
     }
 
     Set<T> findAll() {

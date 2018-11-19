@@ -3,6 +3,8 @@ package springpetclinic.services.map;
 import springpetclinic.model.Pet;
 import springpetclinic.services.PetService;
 
+import java.util.Set;
+
 public class PetMapService extends AbstractMapService<Long, Pet> implements PetService {
 
     @Override
@@ -17,7 +19,7 @@ public class PetMapService extends AbstractMapService<Long, Pet> implements PetS
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override

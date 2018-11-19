@@ -1,8 +1,9 @@
 package springpetclinic.services.map;
 
 import springpetclinic.model.Owner;
-import springpetclinic.services.CurdService;
 import springpetclinic.services.OwnerService;
+
+import java.util.Set;
 
 public class OwnerMapService extends AbstractMapService<Long, Owner> implements OwnerService {
 
@@ -23,7 +24,7 @@ public class OwnerMapService extends AbstractMapService<Long, Owner> implements 
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
