@@ -1,23 +1,22 @@
 package springpetclinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import springpetclinic.model.Owner;
 import springpetclinic.model.Vet;
 import springpetclinic.services.OwnerService;
 import springpetclinic.services.VetService;
-import springpetclinic.services.map.OwnerMapService;
-import springpetclinic.services.map.VetMapService;
 
+@Component
 public class DataInitilizer implements CommandLineRunner {
 
 
     private OwnerService ownerService;
     private VetService vetService;
 
-
-    public DataInitilizer() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+    public DataInitilizer(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
