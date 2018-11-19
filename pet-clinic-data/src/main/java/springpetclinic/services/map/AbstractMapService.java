@@ -20,7 +20,16 @@ public abstract class AbstractMapService<ID extends  Long, T extends BaseEntity>
 
     private Long getNextId() {
 
-        Long id = Collections.max(map.keySet()) + 1;
+        Long id=null;
+
+        try{
+            id = Collections.max(map.keySet()) + 1;
+        }catch (NoSuchElementException e){
+            System.out.println("Exception Occured while fetching Id.." + e.getMessage());
+            id=1L;
+        }
+
+
 
         return id;
     }
