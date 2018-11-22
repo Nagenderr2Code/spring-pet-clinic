@@ -4,7 +4,7 @@
 
     <groupId>guru.spring</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.12-SNAPSHOT</version>
+    <version>0.0.14-SNAPSHOT</version>
     <modules>
         <module>pet-clinic-data</module>
         <module>pet-clinic-web</module>
@@ -55,8 +55,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:Nagenderr2Code/spring-pet-clinic.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+  </scm>
 
 
 </project>
