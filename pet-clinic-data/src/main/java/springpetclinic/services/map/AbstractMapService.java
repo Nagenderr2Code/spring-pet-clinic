@@ -9,7 +9,7 @@ public abstract class AbstractMapService<ID extends  Long, T extends BaseEntity>
     protected Map<Long, T> map = new HashMap<>();
 
     T save(T object) {
-
+        System.out.println("Saving the Object of Type.." + object.getClass());
         if(object.getId() == null){
             object.setId(getNextId());
         }
@@ -19,9 +19,7 @@ public abstract class AbstractMapService<ID extends  Long, T extends BaseEntity>
     }
 
     private Long getNextId() {
-
-        Long id=null;
-
+        Long id;
         try{
             id = Collections.max(map.keySet()) + 1;
         }catch (NoSuchElementException e){

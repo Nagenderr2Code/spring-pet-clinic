@@ -1,8 +1,9 @@
 package springpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
-public class Owner extends Person{
+public class Owner extends Person {
 
     private String address;
     private String city;
@@ -34,7 +35,11 @@ public class Owner extends Person{
     }
 
     public Set<Pet> getPet() {
-        return this.pet;
+        if (pet == null) {
+            return this.pet = new HashSet<Pet>();
+        } else {
+            return this.pet;
+        }
     }
 
     public void setPet(Set<Pet> pet) {
