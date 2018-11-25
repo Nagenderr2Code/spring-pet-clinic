@@ -2,14 +2,8 @@ package springpetclinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import springpetclinic.model.Owner;
-import springpetclinic.model.Pet;
-import springpetclinic.model.PetType;
-import springpetclinic.model.Vet;
-import springpetclinic.services.OwnerService;
-import springpetclinic.services.PetService;
-import springpetclinic.services.PetTypeService;
-import springpetclinic.services.VetService;
+import springpetclinic.model.*;
+import springpetclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -21,17 +15,25 @@ public class DataInitilizer implements CommandLineRunner {
     private VetService vetService;
     private final PetService petService;
     private final PetTypeService petTypeService;
+    private final SpecialityService specialityService;
 
-    public DataInitilizer(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService) {
+    public DataInitilizer(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
         this.petTypeService = petTypeService;
+        this.specialityService = specialityService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        int count = petTypeService.findAll().size();
+        if (count == 0) {
+            loadData();
+        }
+    }
 
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("DOG");
         petTypeService.save(dog);
@@ -81,19 +83,25 @@ public class DataInitilizer implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        Speciality speciality1 = new Speciality();
+        speciality1.setDescription("Dog Specialist");
+        specialityService.save(speciality1);
 
-        System.out.println("Initilizig Owner Data");
         Vet vet1 = new Vet();
         vet1.setFirstName("Vasantha");
         vet1.setLastName("Ettikala");
+        vet1.getSepciality().add(speciality1);
 
         vetService.save(vet1);
+
+        Speciality speciality2 = new Speciality();
+        speciality2.setDescription("Cat Specialist");
+        specialityService.save(speciality2);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Krishna");
         vet2.setLastName("Ettikala");
+        vet2.getSepciality().add(speciality2);
         vetService.save(vet2);
-
-        System.out.println("Initilizig vet Data");
     }
 }
