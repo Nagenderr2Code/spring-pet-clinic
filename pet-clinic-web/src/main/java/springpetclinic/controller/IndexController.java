@@ -11,4 +11,10 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @GetMapping({"/oups", "/vets.html"})
+    public String oupsHandler() {
+        return "notimplemented";
+    }
+
 }
