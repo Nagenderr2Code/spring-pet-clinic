@@ -3,6 +3,6 @@ package springpetclinic.repositories;
 import org.springframework.data.repository.CrudRepository;
 import springpetclinic.model.Pet;
 
-public interface PetService extends CrudRepository<Pet, Long> {
+public interface PetRepository extends CrudRepository<Pet, Long> {
 
 }
