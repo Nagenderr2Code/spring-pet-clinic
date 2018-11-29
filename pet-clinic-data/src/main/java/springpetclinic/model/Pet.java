@@ -25,7 +25,7 @@ public class Pet extends NamedEntity {
 
     public Set<Visit> getVisits() {
         if (this.visits == null) {
-            this.visits = new HashSet<>();
+            return this.visits = new HashSet<>();
         } else {
             return this.visits;
         }
