@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class OwnerSDJpaService implements OwnerService {
+public class OwnerSDJpaService extends SDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
 
