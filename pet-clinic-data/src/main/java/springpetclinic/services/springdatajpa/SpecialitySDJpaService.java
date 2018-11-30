@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class SpecialitySDJpaService implements SpecialityService {
+public class SpecialitySDJpaService extends SDJpaService implements SpecialityService {
 
 
     private final SpecialityRepository specialityRepository;

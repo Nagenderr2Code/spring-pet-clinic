@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class VisitSDJpaService implements VisitService {
+public class VisitSDJpaService extends SDJpaService implements VisitService {
 
     private final VisitRepository visitRepository;
 

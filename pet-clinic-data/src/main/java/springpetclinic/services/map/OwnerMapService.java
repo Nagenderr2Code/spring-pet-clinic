@@ -1,5 +1,6 @@
 package springpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import springpetclinic.model.Owner;
 import springpetclinic.services.OwnerService;
@@ -7,6 +8,7 @@ import springpetclinic.services.OwnerService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Long, Owner> implements OwnerService {
 
     @Override

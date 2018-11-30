@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "pets")
 public class Pet extends NamedEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_id")
     private Owner owner;
 

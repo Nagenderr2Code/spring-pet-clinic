@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class PetTypeSDJpaService implements PetTypeService {
+public class PetTypeSDJpaService extends SDJpaService implements PetTypeService {
 
     private final PetTypeRepository petTypeRepository;
 

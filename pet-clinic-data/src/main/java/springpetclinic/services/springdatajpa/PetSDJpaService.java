@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class PetSDJpaService implements PetService {
+public class PetSDJpaService extends SDJpaService implements PetService {
 
 
     private final PetRepository petRepository;
