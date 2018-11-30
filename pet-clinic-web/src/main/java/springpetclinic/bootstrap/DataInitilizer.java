@@ -16,13 +16,15 @@ public class DataInitilizer implements CommandLineRunner {
     private final PetService petService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataInitilizer(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataInitilizer(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -42,6 +44,7 @@ public class DataInitilizer implements CommandLineRunner {
         PetType cat = new PetType();
         dog.setName("Dancy");
         petTypeService.save(cat);
+
 
 
         Owner owner1 = new Owner();
@@ -103,5 +106,18 @@ public class DataInitilizer implements CommandLineRunner {
         vet2.setLastName("Ettikala");
         vet2.getSepciality().add(speciality2);
         vetService.save(vet2);
+
+        Visit dogVisit = new Visit();
+        dogVisit.setDate(LocalDate.now());
+        dogVisit.setDescription("Dog Visit");
+        dogVisit.setPet(petDog);
+        visitService.save(dogVisit);
+
+        Visit catVisit = new Visit();
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Cat Visit");
+        catVisit.setPet(petCat);
+
+        visitService.save(catVisit);
     }
 }
