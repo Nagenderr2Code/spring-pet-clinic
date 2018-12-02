@@ -14,9 +14,10 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
@@ -80,6 +81,8 @@ class OwnerSDJpaServiceTest {
 
         ownerSDJpaService.delete(owner);
 
+        verify(ownerRepository, times(1)).delete(any());
+
         assertEquals(0, ownerSDJpaService.findAll().size());
     }
 
@@ -87,6 +90,8 @@ class OwnerSDJpaServiceTest {
     void deleteById() {
 
         ownerSDJpaService.deleteById(ownerId);
+
+        verify(ownerRepository, times(1)).deleteById(any());
 
         assertEquals(null, ownerSDJpaService.findById(ownerId));
     }
