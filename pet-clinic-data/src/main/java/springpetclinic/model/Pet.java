@@ -10,11 +10,20 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@Builder
 @AllArgsConstructor
 @Entity
 @Table(name = "pets")
 public class Pet extends NamedEntity {
+
+    @Builder
+    public Pet(Long id, String name, Owner owner, PetType petType, LocalDate dob, Set<Visit> visits) {
+        super(id, name);
+        this.owner = owner;
+        this.petType = petType;
+        this.dob = dob;
+        this.visits = visits;
+    }
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_id")
