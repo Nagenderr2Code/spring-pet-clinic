@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import springpetclinic.model.Owner;
 import springpetclinic.services.OwnerService;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -43,5 +44,10 @@ public class OwnerMapService extends AbstractMapService<Long, Owner> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 }
