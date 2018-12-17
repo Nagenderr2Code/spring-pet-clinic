@@ -42,7 +42,7 @@ public class DataInitilizer implements CommandLineRunner {
 
 
         PetType cat = new PetType();
-        dog.setName("Dancy");
+        cat.setName("CAT");
         petTypeService.save(cat);
 
 
@@ -76,7 +76,7 @@ public class DataInitilizer implements CommandLineRunner {
         owner2.setTelephone("8765468976");
 
         Pet petCat = new Pet();
-        petCat.setName("");
+        petCat.setName("Dancy");
         petCat.setDob(LocalDate.now());
         petCat.setOwner(owner2);
         petCat.setPetType(cat);
