@@ -2,7 +2,9 @@
       th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
 <body>
-
+<!--/*@thymesVar id="pet" type="gspringpetclinic.model.Pet"*/-->
+<!--/*@thymesVar id="owner" type="gspringpetclinic.model.Owner"*/-->
+<!--/*@thymesVar id="owner" type="gspringpetclinic.model.Visit"*/-->
 <h2>
     <th:block th:if="${visit['new']}">New</th:block>
     Visit
